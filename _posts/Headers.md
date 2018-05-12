@@ -1,0 +1,63 @@
+# Header Files
+
+In Java, all your code goes into `.java` files. In C++, it's a little different. You have source files (`.cpp` or sometimes `.cc`) and header files (`.h` or sometimes `.hh`). The source and header files are essentially treated as the same thing by the compiler, they are really differentiated into two different types of files as a way of keeping our code organized.
+
+In the previous section on methods, we built the following example.
+
+```cpp
+#include <stdio.h>
+
+void sayHello();
+
+int main() {
+    sayHello();
+}
+
+void sayHello() {
+    printf("Hello");
+}
+```
+
+The problem that we run into here is that we have `sayHello()` as a method stub and `sayHello()` as a fully implemented method which can get a bit confusing and messy. So, this is where header files come into play. Header files are intended to hold all the declarations for methods and classes and source files hold the implementations. 
+
+By separating the method declarations and the method definitions into two different files, we keep things a lot more organized. For this example, we could separate this code into two files `SayHello.h` and `SayHello.cpp` like so.
+
+- `SayHello.h`
+```cpp
+void sayHello();
+```
+
+- `SayHello.cpp`
+```cpp
+#include <stdio.h>
+#include "SayHello.h"
+
+int main() {
+    sayHello();
+}
+
+void sayHello() {
+    printf("Hello");
+}
+```
+
+You can see here that `SayHello.h` is simply just holding the method declaration for our `sayHello()` method, and then in `SayHello.cpp` the `SayHello.h` header file is included into `SayHello.cpp` using the `#include` directive. When the C++ compiler sees a `#include` directive, it just takes whatever is being included, in our case the file `SayHello.h` and essentiall copies and pastes it into the top of the source file, in this case `SayHello.cpp`. 
+
+So, after the C++ compiler parses the line `#include "SayHello.h"` it will go looking for the file `SayHello.h` and paste it into `SayHello.cpp` resulting in this.
+
+```cpp
+#include <stdio.h>
+void sayHello();
+
+int main() {
+    sayHello();
+}
+
+void sayHello() {
+    printf("Hello");
+}
+```
+
+Which looks exactly like what we had before.
+
+One thing you might notice is that we had an include directive before, `#include <stdio.h>` which looks different than `#include "SayHello.h"` because of the "" vs the <>. The quotes are used for including local files, as in header files that we've created for this project, whereas the angle brackets denote that this is a global include which means that we are trying to include global header files that are part of the C++ standard library that is shipped with C++ compilers.

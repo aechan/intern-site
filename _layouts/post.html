@@ -13,26 +13,16 @@ archive: true
     </section>
 </article>
 <footer id="post-meta" class="clearfix">
-    <a href="http://twitter.com/{{ site.authorTwitter }}">
-        <img class="avatar" src="{{ "/" | relative_url  }}assets/images/avatar.png">
-        <div>
-            <span class="dark">{{ site.author }}</span>
-            <span>{{ site.description }}</span>
-        </div>
-    </a>
+    
+    <img class="avatar" src="{{ "/" | relative_url  }}assets/images/avatar.png">
+    <div>
+        <span class="dark">{{ site.author }}</span>
+    </div>
 
     <section id="sharing">
         {% include share.html %}
     </section>
 </footer>
-
-<!-- Disqus comments -->
-{% if site.disqus %}
-    <div class="archive readmore">
-        <h3>Comments</h3>
-        {% include disqus.html %}
-    </div>
-{% endif %}
 
 <!-- Archive post list -->
 {% if page.archive %}

@@ -1,0 +1,44 @@
+---
+title:  "Classes"
+date:   2018-05-11
+description: Classes in C++ vs Java
+---
+# Classes
+
+Classes in C++ are very similar to classes in Java, but they have a slightly different syntax.
+
+Here is an example of a simple class declaration and definition.
+
+- `Person.h`
+
+```cpp
+#include <string>
+
+class Person {
+public:
+    setName(std::string name);
+    setAge(int age);
+private:
+    std::string name;
+    int age;
+};
+```
+
+- `Person.cpp`
+
+```cpp
+#include <string>
+#include "Person.h"
+
+using namespace std;
+
+Person::setName(string name) {
+    this.name = name;
+}
+
+Person::setAge(int age) {
+    this.age = age;
+}
+```
+
+So, to break this down, we declared our `Person` class in the header file `Person.h` and within our `Person` class we have some public methods as well as private fields. In C++ access modifiers like `private` and `public` are denoted by the `public:` and `private:` attributes and anything declared below them have either public or private access respectively.
