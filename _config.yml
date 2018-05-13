@@ -1,42 +1,26 @@
-name: Java 2 C++ for Interns
-description: Quickly get up to speed on C++
-meta_description: ""
+# Site settings
+title:          Java -> C++
+description:    "Quickly become familiar with the unique features of C++"
+url:            "http://localhost:4000"
 
-aboutPage: false
+# Author
+author:
+  name:         Alec Chan
+  url:          http://alecchan.io
+  email:        me@alecchan.io
 
-markdown: kramdown
-highlighter: rouge
+# Build settings
+markdown:       kramdown
 
-plugins: [jekyll-paginate]
-paginate: 20
-domain_name: 'http://yourblog-domain.com'
-google_analytics: ''
-disqus: false
-disqus_shortname: ''
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        compressed
 
-# Details for the RSS feed generator
-url:            ''
-author:         'Alec Chan'
-authorTwitter:  ''
+# Gems
+plugins:
+  - jekyll-paginate
 
-permalink:       /:title/
-
-defaults:
-    -
-        scope:
-            path: "" # empty string for all files
-            type: pages
-        values:
-            layout: default
-    -
-        scope:
-            path: "" # empty string for all files
-            type: posts
-        values:
-            layout: post
-    -
-        scope:
-            path: ""
-            type: drafts
-        values:
-            layout: post
+# Permalinks
+permalink:      /:title
+paginate:       5
